@@ -4,28 +4,25 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.nonexistentware.recipeappv2.Interface.ItemClickListener;
 import com.nonexistentware.recipeappv2.R;
 
-public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-    public TextView categoryName;
-    public ImageView categoryImage;
+public class ListRecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     ItemClickListener itemClickListener;
+
+    public ImageView recipeImg;
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
 
-    public CategoryViewHolder(@NonNull View itemView) {
+    public ListRecipeViewHolder(@NonNull View itemView) {
         super(itemView);
-        categoryName = itemView.findViewById(R.id.category_name);
-        categoryImage = itemView.findViewById(R.id.image);
+        recipeImg = itemView.findViewById(R.id.image_recipe);
+        recipeImg.setOnClickListener(this);
 
-        itemView.setOnClickListener(this);
     }
 
     @Override

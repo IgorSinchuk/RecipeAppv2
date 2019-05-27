@@ -1,5 +1,6 @@
 package com.nonexistentware.recipeappv2.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nonexistentware.recipeappv2.Common.Common;
 import com.nonexistentware.recipeappv2.Interface.ItemClickListener;
+import com.nonexistentware.recipeappv2.ListRecipe;
 import com.nonexistentware.recipeappv2.Model.CategoryItem;
 import com.nonexistentware.recipeappv2.R;
 import com.nonexistentware.recipeappv2.ViewHolder.CategoryViewHolder;
@@ -80,7 +82,10 @@ public class CategoryFragment extends Fragment {
                holder.setItemClickListener(new ItemClickListener() {
                    @Override
                    public void onClick(View view, int position) {
-                       //
+                       Common.CATEGORY_ID_SELECTED = adapter.getRef(position).getKey();
+                       Common.CATEGORY_SELECTED = model.getName();
+                       Intent intent = new Intent(getActivity(), ListRecipe.class);
+                       startActivity(intent);
                    }
                });
            }
