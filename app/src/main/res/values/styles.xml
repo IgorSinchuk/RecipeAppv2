@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -17,21 +17,31 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="ToolbarColoredBackArrow" parent="AppTheme">
-        <item name="android:textColorSecondary">@android:color/background_dark</item>
+    <!--<style name="ToolbarColoredBackArrow" parent="AppTheme">-->
+        <!--<item name="android:textColorSecondary">@android:color/background_dark</item>-->
+    <!--</style>-->
+
+    <!--<style name="FullScreenTheme" parent="AppTheme">-->
+        <!--<item name="actionBarStyle">@style/FullScreenActionBarStyle</item>-->
+        <!--<item name="windowActionBarOverlay">true</item>-->
+        <!--<item name="android:windowBackground">@null</item>-->
+        <!--&lt;!&ndash;<item name="metaButtonBarStyle">?android:attr/buttonBarButtonStyle</item>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>&ndash;&gt;-->
+    <!--</style>-->
+
+    <!--<style name="FullScreenActionBarStyle" parent="AppTheme">-->
+        <!--<item name="android:background">#000</item>-->
+    <!--</style>-->
+
+    <style name="CollapsedAppBar" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="FullScreenTheme" parent="AppTheme">
-        <item name="actionBarStyle">@style/FullScreenActionBarStyle</item>
-        <item name="windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@null</item>
-        <!--<item name="metaButtonBarStyle">?android:attr/buttonBarButtonStyle</item>-->
-
-        <!--<item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>-->
-    </style>
-
-    <style name="FullScreenActionBarStyle" parent="AppTheme">
-        <item name="android:background">#000</item>
+    <style name="ExpandedAppBar" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.nonexistentware.recipeappv2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class ListRecipe extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(Common.CATEGORY_SELECTED);
-//        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -94,7 +95,9 @@ public class ListRecipe extends AppCompatActivity {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position) {
-
+                        Intent intent = new Intent(ListRecipe.this, ViewRecipe.class);
+                        Common.select_recipe = model;
+                        startActivity(intent);
                     }
                 });
             }
