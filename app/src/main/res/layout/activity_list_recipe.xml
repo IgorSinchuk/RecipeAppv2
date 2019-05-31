@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListRecipe"
-    android:background="#000">
+    android:background="#fff">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -18,8 +18,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#000"
-            app:titleTextColor="#fff">
+            android:background="#fff"
+            app:titleTextColor="#000"
+            android:theme="@style/ToolbarColoredBackArrow">
 
         </android.support.v7.widget.Toolbar>
 
