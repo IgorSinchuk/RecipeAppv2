@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nonexistentware.recipeappv2.Interface.ItemClickListener;
 import com.nonexistentware.recipeappv2.R;
@@ -13,6 +14,7 @@ public class ListRecipeViewHolder extends RecyclerView.ViewHolder implements Vie
     ItemClickListener itemClickListener;
 
     public ImageView recipeImg;
+    public TextView itemName, description;
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
@@ -21,6 +23,8 @@ public class ListRecipeViewHolder extends RecyclerView.ViewHolder implements Vie
     public ListRecipeViewHolder(@NonNull View itemView) {
         super(itemView);
         recipeImg = itemView.findViewById(R.id.image_recipe);
+        itemName = itemView.findViewById(R.id.name_item);
+//        description = itemView.findViewById(R.id.name_item);
         recipeImg.setOnClickListener(this);
 
     }

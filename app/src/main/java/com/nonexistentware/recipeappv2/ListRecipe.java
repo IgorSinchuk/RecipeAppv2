@@ -92,6 +92,7 @@ public class ListRecipe extends AppCompatActivity {
                             }
                         });
 
+                holder.itemName.setText(model.getItemName());
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position) {

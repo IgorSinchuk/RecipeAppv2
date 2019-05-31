@@ -27,7 +27,7 @@ public class ViewRecipe extends AppCompatActivity {
 
     CoordinatorLayout rootLayout;
     ImageView imageView;
-    TextView description_txt;
+    TextView description_txt, itemName;
     CollapsingToolbarLayout collapsingToolbarLayout;
     DatabaseReference reference;
     Query query;
@@ -51,6 +51,7 @@ public class ViewRecipe extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         collapsingToolbarLayout.setTitle(Common.CATEGORY_SELECTED);
         description_txt = findViewById(R.id.description_txt);
+        itemName = findViewById(R.id.item_name);
 
                imageView = findViewById(R.id.imageThumb);
         Picasso.with(this)
@@ -58,6 +59,7 @@ public class ViewRecipe extends AppCompatActivity {
                 .into(imageView);
 
         description_txt.setText(Common.select_recipe.description); // get current item description
+        itemName.setText(Common.select_recipe.itemName);
 
 
 

@@ -4,15 +4,17 @@ public class RecipeItem {
     public String imageLink;
     public String categoryId;
     public String description;
+    public String itemName;
 
 
     public RecipeItem() {
     }
 
-    public RecipeItem(String imageLink, String categoryId, String description) {
+    public RecipeItem(String imageLink, String categoryId, String description, String itemName) {
         this.imageLink = imageLink;
         this.categoryId = categoryId;
         this.description = description;
+        this.itemName = itemName;
     }
 
     public String getImageLink() {
@@ -37,5 +39,13 @@ public class RecipeItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 }
