@@ -1,32 +1,26 @@
 package com.nonexistentware.recipeappv2;
 
-import android.support.annotation.NonNull;
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.nonexistentware.recipeappv2.Common.Common;
-import com.nonexistentware.recipeappv2.Model.RecipeItem;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.Map;
 
 public class ViewRecipe extends AppCompatActivity {
 
     CoordinatorLayout rootLayout;
-    ImageView imageView;
+    ImageView imageView, arrowBack;
     TextView description_txt, itemName;
     CollapsingToolbarLayout collapsingToolbarLayout;
     DatabaseReference reference;
@@ -43,8 +37,6 @@ public class ViewRecipe extends AppCompatActivity {
         if (getActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final RecipeItem recipeItem = new RecipeItem();
-
         rootLayout = findViewById(R.id.rootLayout);
         collapsingToolbarLayout = findViewById(R.id.collapsing);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
@@ -52,6 +44,7 @@ public class ViewRecipe extends AppCompatActivity {
         collapsingToolbarLayout.setTitle(Common.CATEGORY_SELECTED);
         description_txt = findViewById(R.id.description_txt);
         itemName = findViewById(R.id.item_name);
+//        arrowBack = findViewById(R.id.arrow_back);
 
                imageView = findViewById(R.id.imageThumb);
         Picasso.with(this)
@@ -61,18 +54,10 @@ public class ViewRecipe extends AppCompatActivity {
         description_txt.setText(Common.select_recipe.description); // get current item description
         itemName.setText(Common.select_recipe.itemName);
 
-
-
-//        query.addValueEventListener(new ValueEventListener() {
+//        arrowBack.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String description = dataSnapshot.child("description").getValue(String.class);
-//                recipeItem.setDescription(description);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
+//            public void onClick(View v) {
+//                startActivity(new Intent(ViewRecipe.this, ListRecipe.class));
 //            }
 //        });
 

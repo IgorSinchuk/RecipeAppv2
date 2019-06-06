@@ -1,5 +1,6 @@
 package com.nonexistentware.recipeappv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -12,7 +13,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-
+import android.view.View;
+import com.github.clans.fab.FloatingActionButton;
 import com.nonexistentware.recipeappv2.Adapter.MyFragmentAdapter;
 
 public class MainActivity extends AppCompatActivity
@@ -29,20 +31,29 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitle("Recipe appv2");
         setSupportActionBar(toolbar);
 
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         viewPager = findViewById(R.id.viewPager);
         MyFragmentAdapter adapter = new MyFragmentAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(adapter);
 
         tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.setupWithViewPager(viewPager);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+//        FloatingActionButton googleSign = findViewById(R.id.google_login_btn);
+//        googleSign.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, GoogleSignActivity.class));
+//            }
+//        });
+
     }
 
     @Override
@@ -83,17 +94,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.nav_view_upload) {
 
         }
 
