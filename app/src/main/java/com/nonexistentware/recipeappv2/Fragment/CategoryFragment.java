@@ -25,6 +25,9 @@ import com.nonexistentware.recipeappv2.ViewHolder.CategoryViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+
+import jp.wasabeef.picasso.transformations.MaskTransformation;
 
 public class CategoryFragment extends Fragment {
 
@@ -38,7 +41,6 @@ public class CategoryFragment extends Fragment {
 
     private static CategoryFragment INSTANCE = null;
 
-
     public CategoryFragment() {
         database = FirebaseDatabase.getInstance();
         categoryRecipe = database.getReference(Common.STR_CATEGORY_BACKGROUND );
@@ -50,9 +52,13 @@ public class CategoryFragment extends Fragment {
        adapter = new FirebaseRecyclerAdapter<CategoryItem, CategoryViewHolder>(options) {
            @Override
            protected void onBindViewHolder(@NonNull final CategoryViewHolder holder, int position, @NonNull final CategoryItem model) {
+
+               final Transformation transformation = new MaskTransformation(getContext(), R.drawable.dashboard_background_white);
+
                Picasso.with(getActivity())
                        .load(model.getImageLink())
                        .networkPolicy(NetworkPolicy.OFFLINE)
+                       .transform(transformation)
                        .into(holder.categoryImage, new Callback() {
                            @Override
                            public void onSuccess() {
@@ -118,7 +124,7 @@ public class CategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         recyclerView = view.findViewById(R.id.recycler_category);
         recyclerView.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         setCategory();
