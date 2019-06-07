@@ -1,6 +1,5 @@
 package com.nonexistentware.recipeappv2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +12,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.View;
-import com.github.clans.fab.FloatingActionButton;
 import com.nonexistentware.recipeappv2.Adapter.MyFragmentAdapter;
 
 public class MainActivity extends AppCompatActivity
@@ -44,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
 
         tabLayout = findViewById(R.id.tabLayout);
-//        tabLayout.setupWithViewPager(viewPager); // bottom control panel for switching between fragments
+        tabLayout.setupWithViewPager(viewPager); // bottom control panel for switching between fragments
 
 //        FloatingActionButton googleSign = findViewById(R.id.google_login_btn);
 //        googleSign.setOnClickListener(new View.OnClickListener() {
