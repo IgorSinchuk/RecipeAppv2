@@ -47,7 +47,7 @@ public class ListRecipe extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_list_recipe);
         recyclerView.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         loadRecipeList();

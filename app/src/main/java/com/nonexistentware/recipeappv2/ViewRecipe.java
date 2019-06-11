@@ -23,8 +23,6 @@ public class ViewRecipe extends AppCompatActivity {
     ImageView imageView, arrowBack;
     TextView description_txt, itemName;
     CollapsingToolbarLayout collapsingToolbarLayout;
-    DatabaseReference reference;
-    Query query;
 
 
     @Override
