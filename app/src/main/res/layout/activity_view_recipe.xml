@@ -74,25 +74,48 @@
                 </View>
 
                 <TextView
-                    android:id="@+id/description_txt"
-                    android:text="Description"
+                    android:text="Ингридиенты"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <TextView
+                    android:id="@+id/ingredients_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ingredients"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"/>
+
+                <View
+                    android:layout_margin="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/new_grey">
+
+                </View>
+
+                <TextView
+                    android:id="@+id/description_txt"
+                    android:text="Description"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
-    <TextView
-        android:layout_gravity="bottom"
-        android:text="Back"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@android:color/black"/>
+            <TextView
+                android:id="@+id/btn_back"
+            android:layout_gravity="bottom"
+            android:text="Back"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@android:color/black"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
 
         tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager); // bottom control panel for switching between fragments
+//        tabLayout.setupWithViewPager(viewPager); // bottom control panel for switching between fragments
 
 //        FloatingActionButton googleSign = findViewById(R.id.google_login_btn);
 //        googleSign.setOnClickListener(new View.OnClickListener() {
