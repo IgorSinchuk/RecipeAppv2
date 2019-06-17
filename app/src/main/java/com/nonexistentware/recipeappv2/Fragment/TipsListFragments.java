@@ -1,5 +1,6 @@
 package com.nonexistentware.recipeappv2.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import com.nonexistentware.recipeappv2.Common.Common;
 import com.nonexistentware.recipeappv2.Interface.ItemClickListener;
 import com.nonexistentware.recipeappv2.Model.UsefulItem;
 import com.nonexistentware.recipeappv2.R;
+import com.nonexistentware.recipeappv2.UsefulView;
 import com.nonexistentware.recipeappv2.ViewHolder.UsefulListViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
@@ -79,7 +81,9 @@ public class TipsListFragments extends Fragment {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position) {
-
+                        Intent intent = new Intent(getActivity(), UsefulView.class);
+                        Common.select_tip_item = model;
+                        startActivity(intent);
                     }
                 });
 

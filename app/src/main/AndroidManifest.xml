@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GoogleProfileActivity"></activity>
+        <activity android:name=".UsefulView"></activity>
+        <activity android:name=".GoogleProfileActivity" />
         <activity android:name=".GoogleSignActivity" />
         <activity android:name=".ViewRecipe" />
         <activity android:name=".ListRecipe" />

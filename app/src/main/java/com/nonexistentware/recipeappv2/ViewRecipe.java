@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
 import com.nonexistentware.recipeappv2.Common.Common;
 import com.squareup.picasso.Picasso;
 
