@@ -1,18 +1,13 @@
 package com.nonexistentware.recipeappv2.Adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.view.MenuItem;
 
 import com.nonexistentware.recipeappv2.Fragment.CategoryFragment;
-import com.nonexistentware.recipeappv2.Fragment.DailyPopularFragment;
-import com.nonexistentware.recipeappv2.Fragment.RecentsFragment;
-import com.nonexistentware.recipeappv2.R;
+import com.nonexistentware.recipeappv2.Fragment.TipsListFragments;
 
 public class MyFragmentAdapter extends FragmentPagerAdapter {
 
@@ -28,16 +23,13 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
         if (position == 0)
             return CategoryFragment.getInstance();
         else if (position == 1)
-            return DailyPopularFragment.getInstance();
-        else if (position == 2)
-            return RecentsFragment.getInstance();
-        else
+            return TipsListFragments.getInstance();
             return null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Nullable
@@ -47,9 +39,7 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
             case 0:
                 return "Category";
             case 1:
-                return "Daily popular";
-            case 2:
-                return "Recent";
+                return "Tips";
         }
         return "";
     }
