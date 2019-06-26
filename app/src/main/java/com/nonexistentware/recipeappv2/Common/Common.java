@@ -14,6 +14,9 @@ public class Common {
     public static final int SIGN_IN_REQUEST_CODE = 1001;
     public static final int PERMISSION_REQUEST_CODE = 1000;
 
-    public static RecipeItem select_recipe = null;
+    public static RecipeItem select_recipe = new RecipeItem();
     public static UsefulItem select_tip_item = null;
+
+//    public static RecipeItem select_image = new RecipeItem();
+    public static String select_image_key;
 }

@@ -1,18 +1,34 @@
 package com.nonexistentware.recipeappv2;
 
 import android.content.Intent;
+import android.icu.util.LocaleData;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nonexistentware.recipeappv2.Common.Common;
+import com.nonexistentware.recipeappv2.Database.LocalDataBase;
+import com.nonexistentware.recipeappv2.Database.Recent;
+import com.nonexistentware.recipeappv2.Database.RecentDataSource;
+import com.nonexistentware.recipeappv2.Database.RecentRepository;
 import com.squareup.picasso.Picasso;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class ViewRecipe extends AppCompatActivity {
@@ -22,6 +38,8 @@ public class ViewRecipe extends AppCompatActivity {
     TextView description_txt, itemName, ingredients, backBtn;
     CollapsingToolbarLayout collapsingToolbarLayout;
 
+    CompositeDisposable compositeDisposable;
+    RecentRepository recentRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +50,11 @@ public class ViewRecipe extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (getActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        compositeDisposable = new CompositeDisposable();
+        LocalDataBase dataBase = LocalDataBase.getInstance(this);
+        recentRepository = RecentRepository.getInstance(RecentDataSource.getInstance(dataBase.recentDao()));
+
 
         rootLayout = findViewById(R.id.rootLayout);
         collapsingToolbarLayout = findViewById(R.id.collapsing);
@@ -53,6 +76,9 @@ public class ViewRecipe extends AppCompatActivity {
         itemName.setText(Common.select_recipe.itemName);
         ingredients.setText(Common.select_recipe.ingredients);
 
+        //to recent
+        addToRecent();
+
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +95,51 @@ public class ViewRecipe extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    private void addToRecent() {
+        Disposable disposable = Observable.create(new ObservableOnSubscribe<Object>() {
+            @Override
+            public void subscribe(ObservableEmitter<Object> e) throws Exception {
+                Recent recent = new Recent(Common.select_recipe.getImageLink(),
+                        Common.select_recipe.getCategoryId(),
+                        String.valueOf(System.currentTimeMillis()),
+                        Common.select_image_key);
+                        recentRepository.insertRecent(recent);
+                        e.onComplete();
+            }
+        }).observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object o) throws Exception {
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Log.e("ERROR", throwable.getMessage());
+                    }
+                }, new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                });
+
+        compositeDisposable.add(disposable);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override

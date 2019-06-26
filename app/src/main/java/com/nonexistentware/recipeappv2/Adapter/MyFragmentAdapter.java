@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.nonexistentware.recipeappv2.Fragment.CategoryFragment;
+import com.nonexistentware.recipeappv2.Fragment.RecentsFragment;
 import com.nonexistentware.recipeappv2.Fragment.TipsListFragments;
 
 public class MyFragmentAdapter extends FragmentPagerAdapter {
@@ -24,12 +25,14 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
             return CategoryFragment.getInstance();
         else if (position == 1)
             return TipsListFragments.getInstance();
+        else if (position == 2)
+            return RecentsFragment.getInstance(context);
             return null;
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Nullable
@@ -37,10 +40,12 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Category";
+                return "Категории";
             case 1:
-                return "Tips";
+                return "Полезное";
+            case 2:
+                return "Просмотренные";
         }
-        return "";
+        return null;
     }
 }
