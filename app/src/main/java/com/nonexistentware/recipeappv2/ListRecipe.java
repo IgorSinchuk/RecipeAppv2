@@ -27,6 +27,7 @@ import com.squareup.picasso.Picasso;
 
 public class ListRecipe extends AppCompatActivity {
 
+
     Query query;
     FirebaseRecyclerOptions<RecipeItem> options;
     FirebaseRecyclerAdapter<RecipeItem, ListRecipeViewHolder> adapter;
@@ -54,6 +55,7 @@ public class ListRecipe extends AppCompatActivity {
     }
 
     private void loadRecipeList() {
+
         query = FirebaseDatabase.getInstance().getReference(Common.STR_RECIPE)
                 .orderByChild("categoryId").equalTo(Common.CATEGORY_ID_SELECTED);
         options = new FirebaseRecyclerOptions.Builder<RecipeItem>()
@@ -65,7 +67,7 @@ public class ListRecipe extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull final ListRecipeViewHolder holder, int position, @NonNull final RecipeItem model) {
                 Picasso.with(getBaseContext())
                         .load(model.getImageLink())
-                        .networkPolicy(NetworkPolicy.OFFLINE)
+//                        .networkPolicy(NetworkPolicy.OFFLINE)
                         .into(holder.recipeImg, new Callback() {
                             @Override
                             public void onSuccess() {

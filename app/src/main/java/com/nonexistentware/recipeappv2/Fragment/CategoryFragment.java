@@ -58,7 +58,6 @@ public class CategoryFragment extends Fragment {
                Picasso.with(getActivity())
                        .load(model.getImageLink())
                        .networkPolicy(NetworkPolicy.OFFLINE)
-                       .transform(transformation)
                        .into(holder.categoryImage, new Callback() {
                            @Override
                            public void onSuccess() {
