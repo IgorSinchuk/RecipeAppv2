@@ -7,6 +7,7 @@ public class Common {
     public static final String STR_CATEGORY_BACKGROUND = "CategoryRecipes";
     public static final String STR_RECIPE = "Recipes";
     public static final String STR_USEFUL = "Useful";
+    public static final String STR_IMAGELIST = "Images";
 
     public static String CATEGORY_SELECTED;
     public static String CATEGORY_ID_SELECTED;
