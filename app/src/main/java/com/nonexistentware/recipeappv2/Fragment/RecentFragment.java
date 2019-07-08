@@ -27,9 +27,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class RecentsFragment extends Fragment {
+public class RecentFragment extends Fragment {
 
-    private static RecentsFragment INSTANCE = null;
+    private static RecentFragment INSTANCE = null;
 
     RecyclerView recyclerView;
     List<Recent> recentList;
@@ -41,7 +41,7 @@ public class RecentsFragment extends Fragment {
     RecentRepository recentRepository;
 
     @SuppressLint("ValidFragment")
-    public RecentsFragment(Context context) {
+    public RecentFragment(Context context) {
         this.context = context;
 
         compositeDisposable = new CompositeDisposable();
@@ -49,9 +49,9 @@ public class RecentsFragment extends Fragment {
         recentRepository = RecentRepository.getInstance(RecentDataSource.getInstance(dataBase.recentDao()));
     }
 
-    public static RecentsFragment getInstance(Context context) {
+    public static RecentFragment getInstance(Context context) {
         if (INSTANCE == null)
-            INSTANCE = new RecentsFragment(context);
+            INSTANCE = new RecentFragment(context);
         return INSTANCE;
     }
 

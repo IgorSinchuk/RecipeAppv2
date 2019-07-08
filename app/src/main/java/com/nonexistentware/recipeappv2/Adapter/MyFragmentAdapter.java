@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.nonexistentware.recipeappv2.Fragment.CategoryFragment;
-import com.nonexistentware.recipeappv2.Fragment.RecentsFragment;
+import com.nonexistentware.recipeappv2.Fragment.RecentFragment;
 import com.nonexistentware.recipeappv2.Fragment.TipsListFragments;
 
 public class MyFragmentAdapter extends FragmentPagerAdapter {
@@ -26,13 +26,13 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
         else if (position == 1)
             return TipsListFragments.getInstance();
         else if (position == 2)
-            return RecentsFragment.getInstance(context);
+            return RecentFragment.getInstance(context);
             return null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Nullable
