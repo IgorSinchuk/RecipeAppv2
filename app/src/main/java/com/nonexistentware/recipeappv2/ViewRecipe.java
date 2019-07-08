@@ -103,6 +103,9 @@ public class ViewRecipe extends AppCompatActivity {
             public void subscribe(ObservableEmitter<Object> e) throws Exception {
                 Recent recent = new Recent(Common.select_recipe.getImageLink(),
                         Common.select_recipe.getCategoryId(),
+                        Common.select_recipe.getDescription(),
+                        Common.select_recipe.getItemName(),
+                        Common.select_recipe.getIngredients(),
                         String.valueOf(System.currentTimeMillis()),
                         Common.select_image_key);
                         recentRepository.insertRecent(recent);

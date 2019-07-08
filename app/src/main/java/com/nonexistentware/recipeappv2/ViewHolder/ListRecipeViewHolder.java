@@ -23,7 +23,7 @@ public class ListRecipeViewHolder extends RecyclerView.ViewHolder implements Vie
     public ListRecipeViewHolder(@NonNull View itemView) {
         super(itemView);
         recipeImg = itemView.findViewById(R.id.image_recipe);
-        itemName = itemView.findViewById(R.id.name_item);
+        itemName = itemView.findViewById(R.id.item_name);
 //        description = itemView.findViewById(R.id.name_item);
         recipeImg.setOnClickListener(this);
 

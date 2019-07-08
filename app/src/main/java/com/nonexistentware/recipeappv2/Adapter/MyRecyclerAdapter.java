@@ -26,6 +26,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<ListRecipeViewHolder
 
     private Context context;
     private List<Recent> recents;
+    RecipeItem recipeItem = new RecipeItem();
 
     public MyRecyclerAdapter(Context context, List<Recent> recents) {
         this.context = context;
@@ -69,17 +70,21 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<ListRecipeViewHolder
                                         Log.e("ERROR_BASE", "Could not fetch image");
                                     }
                                 });
+
                     }
                 });
-
+            holder.itemName.setText(recents.get(position).getItemName());
             holder.setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onClick(View view, int position) {
                     Intent intent = new Intent(context, ViewRecipe.class);
-                    RecipeItem wallpaperItem = new RecipeItem();
-                    wallpaperItem.setCategoryId(recents.get(position).getCategoryId());
-                    wallpaperItem.setImageLink(recents.get(position).getImageLink());
-                    Common.select_recipe = wallpaperItem;
+                    RecipeItem recipeItem = new RecipeItem();
+                    recipeItem.setCategoryId(recents.get(position).getCategoryId());
+                    recipeItem.setImageLink(recents.get(position).getImageLink());
+                    recipeItem.setDescription(recents.get(position).getDescription());
+                    recipeItem.setItemName(recents.get(position).getItemName());
+                    recipeItem.setIngredients(recents.get(position).getIngredients());
+                    Common.select_recipe = recipeItem;
                     Common.select_image_key = recents.get(position).getKey();
                     context.startActivity(intent);
                 }
