@@ -35,7 +35,7 @@ public class ViewRecipe extends AppCompatActivity {
 
     CoordinatorLayout rootLayout;
     ImageView imageView, arrowBack;
-    TextView description_txt, itemName, ingredients, backBtn;
+    TextView description_txt, itemName, ingredients, backBtn, d2_txt;
     CollapsingToolbarLayout collapsingToolbarLayout;
 
     CompositeDisposable compositeDisposable;
@@ -62,9 +62,10 @@ public class ViewRecipe extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         collapsingToolbarLayout.setTitle(Common.CATEGORY_SELECTED);
         description_txt = findViewById(R.id.description_txt);
+        d2_txt = findViewById(R.id.d2_txt);
         itemName = findViewById(R.id.item_name);
         ingredients = findViewById(R.id.ingredients_txt);
-        backBtn = findViewById(R.id.btn_back);
+//        backBtn = findViewById(R.id.btn_back);
 //        arrowBack = findViewById(R.id.arrow_back);
 
                imageView = findViewById(R.id.imageThumb);
@@ -73,20 +74,21 @@ public class ViewRecipe extends AppCompatActivity {
                 .into(imageView);
 
         description_txt.setText(Common.select_recipe.description); // get current item description
+        d2_txt.setText(Common.select_recipe.d2);
         itemName.setText(Common.select_recipe.itemName);
         ingredients.setText(Common.select_recipe.ingredients);
 
         //to recent
         addToRecent();
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toBack = new Intent(getApplicationContext(), ListRecipe.class);
-                toBack.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(toBack);
-            }
-        });
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent toBack = new Intent(getApplicationContext(), ListRecipe.class);
+//                toBack.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(toBack);
+//            }
+//        });
 
 //        arrowBack.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -20,9 +20,9 @@
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleTextAppearance="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="400dp">
+            <!--app:expandedTitleTextAppearance="@android:color/transparent"-->
 
             <ImageView
                 android:id="@+id/imageThumb"
@@ -64,12 +64,61 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/photo_list_recycler"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/calories_txt"
+                android:text="calories"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/protein_txt"
+                android:text="protein"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                </android.support.v7.widget.RecyclerView>
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/fat_txt"
+                        android:text="fat"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/carbohydrate_txt"
+                        android:text="carbohydrate"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                </LinearLayout>
 
                 <View
                     android:layout_margin="10dp"
@@ -109,19 +158,28 @@
                     android:textSize="17sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/d2_txt"
+                    android:text="Description"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
-            <TextView
-                android:id="@+id/btn_back"
-            android:layout_gravity="bottom"
-            android:text="Back"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@android:color/black"/>
+            <!--<TextView-->
+                <!--android:id="@+id/btn_back"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:text="Back"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@android:color/black"/>-->
 
 </android.support.design.widget.CoordinatorLayout>
