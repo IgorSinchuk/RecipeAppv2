@@ -35,7 +35,7 @@ public class ViewRecipe extends AppCompatActivity {
 
     CoordinatorLayout rootLayout;
     ImageView imageView, arrowBack;
-    TextView description_txt, itemName, ingredients, backBtn, d2_txt;
+    TextView description_txt, itemName, ingredients, backBtn, fat_txt, calories_txt, protein_txt, carbohydrate_txt;
     CollapsingToolbarLayout collapsingToolbarLayout;
 
     CompositeDisposable compositeDisposable;
@@ -62,9 +62,12 @@ public class ViewRecipe extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         collapsingToolbarLayout.setTitle(Common.CATEGORY_SELECTED);
         description_txt = findViewById(R.id.description_txt);
-        d2_txt = findViewById(R.id.d2_txt);
         itemName = findViewById(R.id.item_name);
         ingredients = findViewById(R.id.ingredients_txt);
+        fat_txt = findViewById(R.id.fat_txt);
+        calories_txt = findViewById(R.id.calories_txt);
+        protein_txt = findViewById(R.id.protein_txt);
+        carbohydrate_txt = findViewById(R.id.carbohydrate_txt);
 //        backBtn = findViewById(R.id.btn_back);
 //        arrowBack = findViewById(R.id.arrow_back);
 
@@ -74,7 +77,12 @@ public class ViewRecipe extends AppCompatActivity {
                 .into(imageView);
 
         description_txt.setText(Common.select_recipe.description); // get current item description
-        d2_txt.setText(Common.select_recipe.d2);
+
+        fat_txt.setText(Common.select_recipe.fat);
+        calories_txt.setText(Common.select_recipe.calories);
+        protein_txt.setText(Common.select_recipe.protein);
+        carbohydrate_txt.setText(Common.select_recipe.carbohydrate);
+
         itemName.setText(Common.select_recipe.itemName);
         ingredients.setText(Common.select_recipe.ingredients);
 
